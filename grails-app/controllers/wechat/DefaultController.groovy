@@ -21,15 +21,30 @@ class DefaultController {
 		// SHA1加密
 		String digest = new SHA1().getDigestOfString(bigStr.getBytes())
 				.toLowerCase();
-	 
+
 		// 确认请求来至微信
-		if (digest == signature) {
-			render echostr			
-		}else{
-			render "failed"
+		if (digest != signature) {
+			render status:400, text:"verify signature failed"
+			return
 		}
 		
+		//验证消息真实性 
+		if(echostr != null){
+			render echostr	
+			return 
+		}
 		
+		//接收普通消息
+		def pl = request.XML
 		
+		println pl.ToUserName
+		println pl.FromUserName
+		println pl.CreateTime
+		println pl.MsgType
+		println pl.Content
+		println pl.MsgId
+		
+		render "hello"
+							
 	}
 }
