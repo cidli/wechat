@@ -47,11 +47,11 @@ class DefaultController {
 		
 		render(contentType:"text/xml") {
 			xml{
-				ToUserName(pl.FromUserName)
-				FromUserName(pl.ToUserName)
-				CreateTime(pl.CreateTime)
-				MsgType(pl.MsgType)
-				Content("Hello : " + pl.Content)
+				ToUserName(pl.FromUserName.text())
+				FromUserName(pl.ToUserName.text())
+				CreateTime(pl.CreateTime.text())
+				MsgType(pl.MsgType.text())
+				Content("Hello : " + pl.Content.text())
 			}
 		}							
 	}
