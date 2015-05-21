@@ -44,7 +44,15 @@ class DefaultController {
 		println pl.Content
 		println pl.MsgId
 		
-		render "hello"
-							
+		
+		render(contentType:"text/xml") {
+			xml{
+				ToUserName(pl.FromUserName)
+				FromUserName(pl.ToUserName)
+				CreateTime(pl.CreateTime)
+				MsgType(pl.MsgType)
+				Content("Hello : " + pl.Content)
+			}
+		}							
 	}
 }
