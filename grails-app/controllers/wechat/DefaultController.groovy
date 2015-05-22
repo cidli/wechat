@@ -51,14 +51,14 @@ class DefaultController {
 					ToUserName(pl.FromUserName.text())
 					FromUserName(pl.ToUserName.text())
 					CreateTime(pl.CreateTime.text())
-					MsgType("<![CDATA[news]]>")
+					MsgType("news")
 					ArticleCount(1)
 					Articles{
 						item{
-							Title("<![CDATA[公众平台官网链接]]>")
-							Description("<![CDATA[公众平台官网链接]]>")
-							Url("<![CDATA[http://tieba.baidu.com]]>")
-							PicUrl("<![CDATA[http://pic.nipic.com/2007-11-09/2007119121849495_2.jpg]]>")
+							Title("dddd")
+							Description("ddddddddd")
+							Url("http://tieba.baidu.com")
+							PicUrl("http://pic.nipic.com/2007-11-09/2007119121849495_2.jpg")
 						}
 					}
 				}			
@@ -69,10 +69,10 @@ class DefaultController {
 					ToUserName(pl.FromUserName.text())
 					FromUserName(pl.ToUserName.text())
 					CreateTime(pl.CreateTime.text())
-					MsgType("<![CDATA[link]]>")
-					Title("<![CDATA[公众平台官网链接]]>")
-					Description("<![CDATA[公众平台官网链接]]>")
-					Url("<![CDATA[http://pic.nipic.com/2007-11-09/2007119121849495_2.jpg]]>")
+					MsgType("link")
+					Title("公众平台官网链接")
+					Description("公众平台官网链接")
+					Url("http://pic.nipic.com/2007-11-09/2007119121849495_2.jpg")
 				}
 			}
 		}else{
