@@ -45,14 +45,49 @@ class DefaultController {
 		println pl.MsgId
 		
 		
-		render(contentType:"text/xml") {
-			xml{
-				ToUserName(pl.FromUserName.text())
-				FromUserName(pl.ToUserName.text())
-				CreateTime(pl.CreateTime.text())
-				MsgType(pl.MsgType.text())
-				Content("Hello : " + pl.Content.text())
+		if(pl.Content.text() == "news"){
+			render(contentType:"text/xml") {
+				xml{
+					ToUserName(pl.FromUserName.text())
+					FromUserName(pl.ToUserName.text())
+					CreateTime(pl.CreateTime.text())
+					MsgType("<![CDATA[news]]>")
+					ArticleCount(1)
+					Articles{
+						item{
+							Title("<![CDATA[公众平台官网链接]]>")
+							Description("<![CDATA[公众平台官网链接]]>")
+							Url("<![CDATA[http://tieba.baidu.com]]>")
+							PicUrl("<![CDATA[http://pic.nipic.com/2007-11-09/2007119121849495_2.jpg]]>")
+						}
+					}
+				}			
 			}
-		}							
+		}else if(pl.Content.text() == "link"){
+			render(contentType:"text/xml") {
+				xml{
+					ToUserName(pl.FromUserName.text())
+					FromUserName(pl.ToUserName.text())
+					CreateTime(pl.CreateTime.text())
+					MsgType("<![CDATA[link]]>")
+					Title("<![CDATA[公众平台官网链接]]>")
+					Description("<![CDATA[公众平台官网链接]]>")
+					Url("<![CDATA[http://pic.nipic.com/2007-11-09/2007119121849495_2.jpg]]>")
+				}
+			}
+		}else{
+			render(contentType:"text/xml") {
+				xml{
+					ToUserName(pl.FromUserName.text())
+					FromUserName(pl.ToUserName.text())
+					CreateTime(pl.CreateTime.text())
+					MsgType(pl.MsgType.text())
+					Content("Hello : " + pl.Content.text())
+				}
+			}
+		}
+		
+		
+		
 	}
 }
